@@ -121,7 +121,7 @@ function CreateQuiz() {
                      <option value="any">Any</option>
                      { categoryList.map(category => <option key={category.id} value={category.id}>{category.name}</option>) }
                   </select>
-                  <input className="startButton"   type="submit" value="Start" />
+                  <input role="submit-options" className="startButton"   type="submit" value="Start" />
                </form>
                </>
             }

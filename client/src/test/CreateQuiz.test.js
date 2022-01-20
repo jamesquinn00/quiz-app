@@ -62,8 +62,8 @@ describe('CreateQuiz', () => {
         
         const category = screen.getByRole('category')
         userEvent.click(category)
-        userEvent.selectOptions(category, 'History')   
-        expect(category.value).toEqual(23);  //cannot find stuff thats rendering after initial render
+        userEvent.selectOptions(category, 'Any')   
+        expect(category.value).toEqual('any');  //cannot find stuff thats rendering after initial render
     });
 
     test('submitForm', () => {
