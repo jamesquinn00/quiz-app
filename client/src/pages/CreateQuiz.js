@@ -1,6 +1,7 @@
 import { useState, useContext, useEffect } from 'react'
 import { useNavigate } from "react-router-dom";
 import axios from 'axios'
+import { decode } from 'html-entities'
 import Context from "../utils/Context"
 
 function CreateQuiz() {
@@ -16,7 +17,17 @@ function CreateQuiz() {
    async function getTriviaData(data) {
       try {
          const res = await axios.get(data.url)
+
+         res.data.results.forEach(e => {
+            e.question = decode(e.question)
+            if(e.type === 'multiple') {
+               e.correct_answer = decode(e.correct_answer)
+               e.incorrect_answers = e.incorrect_answers.map(ans => decode(ans))
+            }
+         })
+
          data.questions = res.data.results
+
          let i = 0
          let counter = 1
          while(i <= data.questions.length - players.length) {
@@ -29,7 +40,7 @@ function CreateQuiz() {
          setTriviaData(data)
          navigate("/questions_page")
       } catch (err) {
-         setInfo(err.response.data.message || err.message)
+         setInfo(`There has been an issue ${err.message}`)
       }
    }
 

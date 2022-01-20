@@ -27,34 +27,26 @@ function QuestionsPage() {
 
    useEffect(() => {
       let timer
+
+      if (!selected && counter > 0) {
+        timer = setTimeout(() => setCounter(c => c - 1), 1000)
+      } else if (counter === 0){
+         setSelected('unanswered')
+      }
+
+      return () => {
+         if (timer)
+            clearTimeout(timer);
+      }
+    }, [counter, selected]);
+
+   useEffect(() => {
       let delay
 
       function next() {
          delay = setTimeout(() => questionIndex === triviaData.questions.length - 1 ? navigate('/results_page') : setQuestionIndex(state => state + 1), 2000)
       }
 
-      if (counter > 0) {
-        timer = setTimeout(() => setCounter(c => c - 1), 1000)
-      } else {
-         setSelected('unanswered')
-         next()
-      }
-
-      if(selected && timer) {
-         clearTimeout(timer)
-         next()
-      }
-
-      return () => {
-         if (timer) {
-            clearTimeout(timer);
-         }
-         if (delay)
-            clearTimeout(delay)
-      }
-    }, [counter, selected]);
-
-   useEffect(() => {
       if(selected) {
          const data = triviaData.questions[questionIndex]
          const scores = { ...triviaData.scores }
@@ -62,6 +54,12 @@ function QuestionsPage() {
          scores[data.player.name] += score
          setScore(state => state + score)
          setTriviaData({ ...triviaData, scores})
+         next()
+      }
+      
+      return  () => {
+         if (delay)
+            clearTimeout(delay)
       }
          
    }, [selected])
@@ -102,10 +100,6 @@ function QuestionsPage() {
          </div>
       )
    }
-
-   // const handleClick = e => {
-   //    navigate(e.target.value)
-   // }
 
    return (
       <div role="question-container">

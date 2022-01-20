@@ -64,7 +64,7 @@ function Leaderboard() {
             <ScoresList difficultyFilter={filter}/>
          </div>
          <h2>{info}</h2>
-         <NavigateButton navigatePath={'/'} buttonText="Home"  />
+         <NavigateButton navigatePath={'/'} buttonText="Home" />
       </div>
    )
 }

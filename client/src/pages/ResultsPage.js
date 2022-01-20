@@ -51,7 +51,7 @@ function ResultsPage() {
             <div className='scorebuttons'>
                <NavigateButton navigatePath={'/'} buttonText="Home" />
                <NavigateButton navigatePath={'/create_quiz'} buttonText="Play again" />
-               <NavigateButton navigatePath={'/leaderboard'} buttonText="Leaderboard"  />
+               <NavigateButton navigatePath={'/leaderboard'} buttonText="Leaderboard" />
             </div>
          </>
          }
