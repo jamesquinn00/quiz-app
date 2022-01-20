@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
 
+
 body {
   background-color: rgb(14, 116, 136);
   position: relative; 
@@ -52,6 +53,34 @@ li:hover {
 	box-shadow: 6px 5px 10px rgba(233, 248, 252, 0.733);
   border-radius: 20px;
 }
+
+ol{
+  padding-inline-start: 0px;
+  text-align: left;
+}
+ol>li{
+  background-color: rgba(255, 255, 255, 0.651);
+  border: rgba(0, 0, 0, 0.445) 1px solid;
+  display: flex;
+  justify-content: space-between;
+}
+ol>li:first-child{
+  color:rgb(172, 152, 38);
+}
+ol>li:nth-child(2){
+  color:rgb(117, 117, 117);
+}
+ol>li:nth-child(3){
+  color:rgb(94, 66, 30);
+}
+.leader-name{
+  text-align: center;
+}
+/* 
+.leader-score{
+  text-align: center;
+} */
+
 .create {
   display:block;
   text-align: center;
@@ -61,6 +90,15 @@ li:hover {
   padding: 10px;
   font-family: 'Fredoka One', cursive;
 }
+@media only screen and (max-width: 900px) {
+  .welcome{
+    width: 80%;
+  }
+  .create{
+    width:80%;
+  }
+}
+
 .createquiz{
   position:relative;
 	top: 0;
@@ -77,8 +115,9 @@ li:hover {
 }
 .input {
   padding: 8px;
-  width: 70%;
-  margin-right: 20px;
+  /* width: 70%; */
+  /* margin-right: 20px; */
+  margin-bottom: 1.5rem;
   border-color:lightskyblue;
 }
 .addButton{
@@ -145,7 +184,7 @@ li:hover {
   font-family: 'Fredoka One', cursive;
 	display:grid;
 	justify-content: space-evenly;
-	padding: 40px;
+	padding: 15px 40px 40px 40px;
 	background-color:rgba(143, 171, 180, 0.712);
 	color: #ffffff;
   margin:auto;
@@ -183,6 +222,9 @@ li:hover {
     background-color: gray;
     box-shadow: 5px 5px 10px rgba(218, 255, 6, 0.705);
   }
+  .leaderboard-list{
+    margin: 5px 10% 5px 10%;
+  }
   .playAgain{
     background-color: rgba(77, 204, 65, 0.842);
     font-family:sans-serif;
@@ -210,30 +252,40 @@ li:hover {
 	background-color:rgba(144, 236, 144, 0.411);
 	color: #000000;
 	margin: auto;
+  margin-bottom: 10px;
 	box-shadow: 5px 5px 6px rgba(37, 228, 180, 0.829);
   border-radius: 20px;
 }
+
+
+
 .scoreSummary h2 {
   font-size: 24pt;
   font-family: 'Fredoka One', cursive;
 }
 .questiontitle{
-  margin: -5% 0% 7px 75%;
+  margin: 2% 25% 3% 25%;
+  /* padding:  */
   font-family:sans-serif;
-	display: grid;
-  width: 10%;
-	justify-content: space-evenly;
+	display: flex;
+  flex-direction: column;
+  /* text-align: center; */
+  width: 50%;
+	justify-content: center;
 	background-color:rgba(144, 236, 144, 0.534);
   border-radius: 5px;
 }
 .scorebuttons{
   font-size: 12pt;
   display: flex;
+  flex-direction: column;
   width: 35%;
   padding-top: 3%;
   margin:auto;
   justify-content: center;
 }
+
+
 .questiontitle h2 , h3{
   font-size: 16pt;
   padding: 2px;
@@ -243,7 +295,7 @@ li:hover {
 
 .LeaderBoard{
     position:static;
-    width: 30%;
+    width: 40%;
     font-family: 'Fredoka One', cursive;
     display: flex;
     flex-direction: column;
@@ -273,6 +325,20 @@ li:hover {
   margin: auto;
 }
 
+@media only screen and (max-width: 900px) {
+  .scoreSummary {
+    margin-bottom: 20px;
+    width: 80%;
+    /* font-size: 10px; */
+  }
+  .scorebuttons{
+    width: 50%
+  }
+  .LeaderBoard {
+    width: 80%
+  }
+}
+
 .table{
   border-style:dashed;
   border-color: #8b8126;
@@ -299,6 +365,20 @@ li:hover {
   width: 90%;
   font-size: 14pt;
 }
+.question-container > div > .buttonsContainer {
+  width: 100%;
+  display:flex;
+  justify-content:center;
+}
+
+.question-container > div > .buttonsContainer > .navigatebutton{
+  margin-top: 2%;
+  width: 40%;
+  background-color:rgb(139, 42, 42);
+  display:flex;
+  justify-content:center;
+}
+
 .navigatebutton:hover{
   background-color: gray;
   box-shadow: 5px 5px 10px rgba(218, 255, 6, 0.705);
@@ -308,4 +388,10 @@ li:hover {
   width: 10%;
   margin:auto;
   margin-top:10px;
+}
+
+@media only screen and (min-width: 900px) {
+  .question-container > div > .buttonsContainer > .navigatebutton {
+    width: 20%;
+  }
 }

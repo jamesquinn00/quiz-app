@@ -102,7 +102,7 @@ function QuestionsPage() {
    }
 
    return (
-      <div role="question-container">
+      <div className="question-container" role="question-container">
          { triviaData &&
             <div>
                <div className="questiontitle">

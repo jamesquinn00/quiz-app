@@ -47,7 +47,7 @@ function Leaderboard() {
          list = scoresList
       }
       list = list.slice(0, 10)
-      return list.map((e, i) => <p key={`player${i}`}>{e.name}: {filter ? e[filter] : getTotalScore(e)}</p>)
+      return list.map((e, i) => <li className='leaderboard-list'key={`player${i}`}><span className='leader-number'>{i+1}.</span><span className='leader-name'>{e.name}</span><span className='leader-score'>{filter ? e[filter] : getTotalScore(e)}</span></li>)
    }
 
    return (
@@ -60,9 +60,9 @@ function Leaderboard() {
             <option value="medium">Medium</option>
             <option value="hard">Hard</option>
          </select>
-         <div role='scorelist' className='table'>
+         <ol role='scorelist' className='table'>
             <ScoresList difficultyFilter={filter}/>
-         </div>
+         </ol>
          <h2>{info}</h2>
          <NavigateButton navigatePath={'/'} buttonText="Home" />
       </div>
